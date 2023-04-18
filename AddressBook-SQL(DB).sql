@@ -52,3 +52,19 @@ update Address_Book set Name='Indrakumar',Type='Friend' Where Id=5;
 Select COUNT(Type) from Address_Book Where Type='Family';
 
 --UC11
+Insert into Address_Book(FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email,Name,Type) values('Sanjay','Kumar','Kolar','Kolar','Karnataka',553746,9874687656,'Sanjay@gmail.com','Sanjaykumar','Friend'); 
+Insert into Address_Book(FirstName,LastName,Address,City,State,Zip,PhoneNumber,Email,Name,Type) values('Prathap','Singh','Rajasthan','Rajasthan','Rajasthan',343746,6787468765,'Prathap@gmail.com','Prathapsingh','Family'); 
+
+--UC12
+Create Table Type
+(
+ID int primary Key identity(1,1),
+TypeName Varchar(30),
+PersonID int Foreign Key REFERENCES Address_Book(ID)
+);
+Insert into Type(TypeName,PersonID) Values('Friends','1');
+Insert into Type(TypeName,PersonID) Values('Family','1');
+select * from Type;
+
+--UC13
+Select*from Address_Book;
