@@ -68,3 +68,32 @@ select * from Type;
 
 --UC13
 Select*from Address_Book;
+
+--UC14
+Create Procedure AddContacts
+(
+@FirstName varchar(30),
+@LastName varchar(30),
+@Address varchar(30),
+@City varchar(30),
+@State varchar(30),
+@Zip BigInt,
+@PhoneNumber BigInt,
+@Email varchar(30),
+@Name varchar(30),
+@Type varchar(30)
+)
+As
+Begin
+Insert into Address_Book values(@FirstName,@LastName,@Address,@City,@State,@Zip,@PhoneNumber,@Email,@Name,@Type);
+End 
+
+--UC15
+Create Procedure DeleteContacts
+(
+@Id int
+)
+As
+Begin
+Delete from Address_Book Where Id=@Id;
+End
