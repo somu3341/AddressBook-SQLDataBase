@@ -108,18 +108,15 @@ namespace AddressBookSQL
                 throw new Exception(ex.Message);
             }
         }
-        public void UpdateContacts(int id, string First, string Last, string name, string Type)
+        public void UpdateContactDeatils(int id, string Type)
         {
             try
             {
                 using (this.connection)
                 {
-                    SqlCommand cmd = new SqlCommand("UpdateContacts", this.connection);
+                    SqlCommand cmd = new SqlCommand("UpdateContactDeatils", this.connection);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id", id);
-                    cmd.Parameters.AddWithValue("@FirstName", First);
-                    cmd.Parameters.AddWithValue("@LastName", Last);
-                    cmd.Parameters.AddWithValue("@Name", name);
                     cmd.Parameters.AddWithValue("@Type", Type);                
                     this.connection.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
