@@ -99,14 +99,12 @@ Delete from Address_Book Where Id=@Id;
 End
 
 --UC16
-Create Procedure UpdateContacts
+Create Procedure UpdateContactDeatils
 (
-@FirstName varchar(30),
-@LastName varchar(30),
-@Name varchar(30),
+@Id int,
 @Type varchar(30)
 )
 As
 Begin
-Update Address_Book set FirstName=@FirstName,LastName=@LastName,Name=@Name,Type=@Type;
+Update Address_Book set Type=@Type Where Id=@Id;
 End
